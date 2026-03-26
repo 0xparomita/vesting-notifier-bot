@@ -1,0 +1,11 @@
+{
+  "name": "vesting-notifier-bot",
+  "version": "1.0.0",
+  "description": "Automated email reporting for token vesting",
+  "dependencies": {
+    "ethers": "^6.10.0",
+    "csv-writer": "^1.6.0",
+    "@sendgrid/mail": "^8.1.0",
+    "dotenv": "^16.3.1"
+  }
+}
