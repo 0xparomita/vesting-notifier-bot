@@ -1,0 +1,21 @@
+name: Weekly Vesting Report
+on:
+  schedule:
+    - cron: '0 9 * * 1' # Every Monday at 9:00 AM
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+      - run: npm install
+      - run: node notify.js
+        env:
+          RPC_URL: ${{ secrets.RPC_URL }}
+          LENS_ADDRESS: ${{ secrets.LENS_ADDRESS }}
+          FACTORY_ADDRESS: ${{ secrets.FACTORY_ADDRESS }}
+          SENDGRID_API_KEY: ${{ secrets.SENDGRID_API_KEY }}
+          TREASURY_EMAIL: ${{ secrets.TREASURY_EMAIL }}
